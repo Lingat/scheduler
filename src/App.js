@@ -5,8 +5,12 @@ import TutorialList from './components/TutorialList';
 
 function App() {
     const [tutorials, setTutorials] = useState([]);
+    const [loading, setLoading] = useState(true)
+
+
 
     const loadTutorials = async () => {
+        setTimeout(() => setLoading(false), 6000)
         //TODO:load the courses
         try {
             const res = await fetch('/.netlify/functions/tutorials');
@@ -23,12 +27,41 @@ function App() {
         loadTutorials();
     }, []);
 
+    return (
+      <>
+      {tutorials && tutorials.length ? (
+      <div className="container mt-5">
+      <h1 className="mb-5 text-center">Tutorials</h1>
+      <TutorialList tutorials={tutorials} refreshTutorials={loadTutorials} />
+      </div>
+        ) : (
+          <div className="container mt-5">
+          <h1 className="mb-5 text-center">Loading</h1>
+          </div>
+        )}
+        </>
+    ); /*
   return (
-    <div className="container mt-5">
+    <>
+  {loading === false ?
+    (
+      <div className="container mt-5">
       <h1 className="mb-5 text-center">Tutorials</h1>
       <TutorialList tutorials={tutorials} refreshTutorials={loadTutorials} />
     </div>
-  );
+    )
+: (
+  <div className="container mt-5">
+      <h1 className="mb-5 text-center">Tutorials</h1>
+      <TutorialList tutorials={tutorials} refreshTutorials={loadTutorials} />
+    </div>
+)
+  
+    }
+
+  )
+    </>
+    */
 }
 
 export default App;
