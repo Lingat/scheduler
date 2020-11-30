@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import TutorialList from './components/TutorialList';
+
 
 function App() {
+    const [tutorials, setTutorials] = useState([]);
+
+    const loadTutorials = async () => {
+        //TODO:load the courses
+        try {
+            const res = await fetch('/.netlify/functions/tutorials');
+            const tutorials = await res.json();
+            console.log(tutorials);
+            setTutorials(tutorials);
+        }
+        catch(err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        loadTutorials();
+    }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mt-5">
+      <h1 className="mb-5 text-center">Tutorials</h1>
+      <TutorialList tutorials={tutorials} refreshTutorials={loadTutorials} />
     </div>
   );
 }
