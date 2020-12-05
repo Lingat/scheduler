@@ -1,14 +1,15 @@
 // TODO
 const formattedReturn = require('./helpers/formattedReturn');
 const getTutorials= require('./helpers/getTutorials');
+const updateTutorial = require('./helpers/updateTutorial');
 
 exports.handler = async (event) => {
     switch(event.httpMethod) {
         case 'GET':
             return await getTutorials(event);
+        case 'PUT':
+            return await updateTutorial(event);
         /*
-        case 'POST':
-            return await createCourse(event);
         case 'PUT':
             return await updateCourse(event);
         case 'DELETE':
