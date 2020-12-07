@@ -14,7 +14,7 @@ export default function TutorialList({tutorials, refreshTutorials }) {
             <div className="list-group">
             <input className="search-bar" onChange={onSearch} value={searchedValue} placeholder="Search for class here"></input>
                 {tutorials
-                    .filter((tutorial) => tutorial.name.toLowerCase().includes(searchedValue.toLowerCase()) && tutorial.tutor !== "none")
+                    .filter((tutorial) => (tutorial.name ? tutorial.name.includes(searchedValue) : false ) && tutorial.tutor !== "none")
                     .map((tutorial) => (
                         <Tutorial
                             tutorial={tutorial}

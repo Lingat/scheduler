@@ -40,28 +40,7 @@ function App() {
           </div>
         )}
         </>
-    ); /*
-  return (
-    <>
-  {loading === false ?
-    (
-      <div className="container mt-5">
-      <h1 className="mb-5 text-center">Tutorials</h1>
-      <TutorialList tutorials={tutorials} refreshTutorials={loadTutorials} />
-    </div>
-    )
-: (
-  <div className="container mt-5">
-      <h1 className="mb-5 text-center">Tutorials</h1>
-      <TutorialList tutorials={tutorials} refreshTutorials={loadTutorials} />
-    </div>
-)
-  
-    }
-
-  )
-    </>
-    */
+    ); 
 }
 
 export default App;

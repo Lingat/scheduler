@@ -11,12 +11,11 @@ exports.handler = async (event) => {
             return await updateTutorial(event);
         /*
         case 'PUT':
-            return await updateCourse(event);
+            return await updateTutorial(event);
         case 'DELETE':
-            return await deleteCourse(event);
+            return await deleteTutorial(event);
         */
         default:
             return formattedReturn(405, {});
     }
-    //return formattedReturn(200, 'Hello World');
 };
