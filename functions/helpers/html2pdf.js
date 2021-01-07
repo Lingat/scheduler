@@ -11,7 +11,11 @@ module.exports = async (event) => {
           content: { name: 'John Smith', courseName: "Name of Course", date: "1/6/21" }
         })
         .then(() => console.log('The image was created successfully!'))
+        .catch(error =>
+            console.log(error))
       });
+
+      return formattedReturn(200, {msg: "Image created successfully!"});
 };
 
 
