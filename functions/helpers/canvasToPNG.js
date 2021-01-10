@@ -1,6 +1,5 @@
 const sgMail = require("@sendgrid/mail");
-var moment = require("moment-timezone");
-var fs = require("fs");
+
 const { createCanvas, loadImage } = require("canvas");
 const canvasWidth = 860;
 const canvasHeight = 660;
