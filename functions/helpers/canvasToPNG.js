@@ -81,7 +81,7 @@ function certificateString(name, courseName, date) {
 module.exports = async (event) => {
   // load an image as the background
   loadImage(
-    "https://lh3.googleusercontent.com/proxy/0hbg-wwtIlWFNXaTKH0EQJyRHe5McOCYcI2U-lOpIuVE-0BBuC2VCrAlK0cuJfRuhPR5TQOVD2_F87JaI69NXfhPS2YEoIw"
+    "https://media.istockphoto.com/vectors/certificate-border-vector-id165491341?k=6&m=165491341&s=612x612&w=0&h=ievJt__zUcs4SmfXqNihmUqoFhjTF_BnCL_4bl49jf4="
   )
     .then((image) => {
       ctx.drawImage(image, 0, 0, 850, 650);
@@ -93,8 +93,7 @@ module.exports = async (event) => {
       loadImage(
         "https://static.vecteezy.com/system/resources/thumbnails/001/209/023/small/graduation-hat.png"
       ).then((image2) => {
-		ctx.fillStyle = "white";
-		ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
         ctx.fillText(
           certificateString(
             "John Smith\n",
