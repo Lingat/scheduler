@@ -1,5 +1,5 @@
 const sgMail = require("@sendgrid/mail");
-
+const formattedReturn = require('./helpers/formattedReturn');
 const { createCanvas, loadImage } = require("canvas");
 const canvasWidth = 860;
 const canvasHeight = 660;
