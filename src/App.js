@@ -12,6 +12,7 @@ function App() {
     const loadTutorials = async () => {
         setTimeout(() => setLoading(false), 6000)
         //TODO:load the courses
+        // some comment
         try {
             const res = await fetch('/.netlify/functions/tutorials');
             const tutorials = await res.json();
